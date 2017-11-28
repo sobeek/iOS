@@ -9,5 +9,5 @@
 import UIKit
 
 class ProductStore {
-    var products = [Product]() //добавить что-то в AppDelegate (см. с. 304 книги)
+    var products = [Product]()
 }

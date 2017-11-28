@@ -11,11 +11,12 @@ import UIKit
 class  ProductsViewController: UITableViewController {
     
     var productStore: ProductStore!
+    var productsFetcher: ProductsFetcher!
     
     @IBAction func handleRefresh(_ refreshControl: UIRefreshControl) {
         print("Refreshed")
         refreshControl.endRefreshing()
-        //add launch of new request to PH
+        //add launch of new request to Producthunt
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,9 +28,21 @@ class  ProductsViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "product")!
         
-        cell.textLabel?.text = productStore.products[indexPath.row].name
+        cell.textLabel?.text = productStore.products[indexPath.row].title
         cell.detailTextLabel?.text = productStore.products[indexPath.row].desc
         
         return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        productsFetcher.fetchProducts() { (fetchingResult) -> Void in
+            switch fetchingResult {
+            case let .success(products):
+                print("Successfully found \(products.count) products.")
+            case let .failure(error):
+                print("Error fetching products: \(error)")
+            }
+        }
     }
 }

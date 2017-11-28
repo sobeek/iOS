@@ -15,15 +15,27 @@ class Product: NSObject {
      Количество upvotes
      Thumbnail
  */
-    var name: String
+    /*
+ Страница продукта
+ На странице продукта отображается все то же самое, что и в ячейке в списке, кроме
+ следующих моментов:
+  Есть кнопка “Get it”, которая открывает ссылку на этот продукт;
+  Вместо Thumbnail отображается скриншот продукта.
+ */
+    
+    var title: String
     var desc: String
     var upvotes: Int
-    var thumbnail: UIImage
+    var thumbnail: URL
+    var url: URL
+    var productPicture: URL
     
-    init(name: String, desc: String, upvotes: Int, thumbnail: UIImage) {
-        self.name = name
+    init(title: String, desc: String, upvotes: Int, thumbnail: URL, url: URL, productPicture: URL) {
+        self.title = title
         self.desc = desc
         self.upvotes = upvotes
         self.thumbnail = thumbnail
+        self.url = url
+        self.productPicture = productPicture
     }
 }
