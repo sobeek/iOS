@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Currency_converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkm-t6-64M">
+                                <rect key="frame" x="26" y="322" width="323" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="JWM-ic-RGk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-OM-6Vp">
+                                <rect key="frame" x="0.0" y="358" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="можно купить" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pee-j8-9KC">
+                                <rect key="frame" x="26" y="282" width="323" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrI-A2-wbs">
+                                <rect key="frame" x="0.0" y="66" width="375" height="216"/>
+                            </pickerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-cg-5hP">
+                                <rect key="frame" x="177.5" y="330" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня на один" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-nt-eHM">
+                                <rect key="frame" x="75.5" y="30" width="225" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C1d-nt-eHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4rB-RV-urj"/>
+                            <constraint firstItem="nkm-t6-64M" firstAttribute="top" secondItem="pee-j8-9KC" secondAttribute="bottom" constant="4" id="CCA-rH-BFU"/>
+                            <constraint firstItem="hbd-cg-5hP" firstAttribute="top" secondItem="pee-j8-9KC" secondAttribute="bottom" constant="12" id="E6t-om-z0s"/>
+                            <constraint firstItem="ZGG-OM-6Vp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Flp-2B-Jal"/>
+                            <constraint firstItem="QrI-A2-wbs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GJf-ha-OVh"/>
+                            <constraint firstItem="pee-j8-9KC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="LbM-z2-gKj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pee-j8-9KC" secondAttribute="trailing" constant="10" id="LoW-Y7-9fh"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGG-OM-6Vp" secondAttribute="trailing" id="MBD-Ll-PL6"/>
+                            <constraint firstAttribute="trailing" secondItem="QrI-A2-wbs" secondAttribute="trailing" id="RRV-d8-Xze"/>
+                            <constraint firstItem="QrI-A2-wbs" firstAttribute="top" secondItem="C1d-nt-eHM" secondAttribute="bottom" id="WvT-fR-a56"/>
+                            <constraint firstItem="pee-j8-9KC" firstAttribute="top" secondItem="QrI-A2-wbs" secondAttribute="bottom" id="YCh-Dq-5T0"/>
+                            <constraint firstItem="C1d-nt-eHM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="aBG-xq-CFj"/>
+                            <constraint firstItem="ZGG-OM-6Vp" firstAttribute="top" secondItem="nkm-t6-64M" secondAttribute="bottom" id="b3S-tW-UyF"/>
+                            <constraint firstItem="nkm-t6-64M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="iEk-mj-gpC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nkm-t6-64M" secondAttribute="trailing" constant="10" id="lRn-v7-ObF"/>
+                            <constraint firstItem="hbd-cg-5hP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qwt-DI-0fi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndecator" destination="hbd-cg-5hP" id="jIU-fx-Vw1"/>
+                        <outlet property="label" destination="nkm-t6-64M" id="7x4-7N-A7H"/>
+                        <outlet property="pickerFrom" destination="QrI-A2-wbs" id="Omj-Le-bW4"/>
+                        <outlet property="pickerTo" destination="ZGG-OM-6Vp" id="sRm-1P-Hsa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="66.11694152923539"/>
+        </scene>
+    </scenes>
+</document>
