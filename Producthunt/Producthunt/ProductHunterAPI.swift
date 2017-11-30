@@ -37,7 +37,7 @@ struct ProductHunterAPI {
             }
             
             if parsedProducts.isEmpty && !postsArray.isEmpty {
-                // We weren't able to parse any of the photos
+                // We weren't able to parse any of the products
                 // Maybe the JSON format for photos has changed
                 return .failure(ProductHuntError.invalidJSONData)
             }

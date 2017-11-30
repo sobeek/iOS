@@ -18,13 +18,12 @@ class ProductDetailsViewController: UIViewController {
     
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var upvotesNumber: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
     @IBAction func getProduct (sender: UIButton) {
         UIApplication.shared.open(product.url, options: [:], completionHandler: nil)
     }
-    @IBOutlet var imageView: UIImageView!
-
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
