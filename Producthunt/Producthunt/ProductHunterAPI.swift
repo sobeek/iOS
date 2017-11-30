@@ -49,7 +49,7 @@ struct ProductHunterAPI {
     }
     
     private static func product(fromJSON json: [String:Any]) -> Product? {
-        print(json)
+        //print(json)
         guard
             let description = json["tagline"] as? String,
             let title = json["name"] as? String,
@@ -62,7 +62,7 @@ struct ProductHunterAPI {
             let thumbnailURLString = thumbnailDictionary["image_url"] as? String
         else {
                 // Don't have enough information to construct a Product
-                print("FAIL...")
+                //print("FAIL...")
                 return nil
         }
         //get product, pic and thumbnail urls

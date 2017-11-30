@@ -17,8 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        // Access the ItemsViewController and set its item store
-        let productsController = window!.rootViewController as! ProductsViewController
+        // Access the ProductsViewController and set its item store
+        
+        
+        let navController = window!.rootViewController as! UINavigationController
+        let productsController = navController.topViewController as! ProductsViewController
+        
         productsController.productStore = ProductStore()
         productsController.productsFetcher = ProductsFetcher()
         

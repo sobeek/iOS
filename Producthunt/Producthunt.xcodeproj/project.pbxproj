@@ -18,6 +18,7 @@
 		E96474821FCC29DF000C5BE9 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96474811FCC29DF000C5BE9 /* ProductStore.swift */; };
 		E96474841FCD6D86000C5BE9 /* ProductHunterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */; };
 		E9A24CF81FCDA0DB0034C674 /* ProductsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A24CF71FCDA0DB0034C674 /* ProductsFetcher.swift */; };
+		E9A24CFA1FD01FD60034C674 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A24CF91FD01FD60034C674 /* ProductDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E96474811FCC29DF000C5BE9 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
 		E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHunterAPI.swift; sourceTree = "<group>"; };
 		E9A24CF71FCDA0DB0034C674 /* ProductsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsFetcher.swift; sourceTree = "<group>"; };
+		E9A24CF91FD01FD60034C674 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */,
 				E964744F1FCC1D6A000C5BE9 /* AppDelegate.swift */,
 				E96474531FCC1D6A000C5BE9 /* Main.storyboard */,
+				E9A24CF91FD01FD60034C674 /* ProductDetailsViewController.swift */,
 				E964747D1FCC22B0000C5BE9 /* ProductsViewController.swift */,
 				E96474561FCC1D6A000C5BE9 /* Assets.xcassets */,
 				E96474581FCC1D6A000C5BE9 /* LaunchScreen.storyboard */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A24CFA1FD01FD60034C674 /* ProductDetailsViewController.swift in Sources */,
 				E9A24CF81FCDA0DB0034C674 /* ProductsFetcher.swift in Sources */,
 				E964747E1FCC22B0000C5BE9 /* ProductsViewController.swift in Sources */,
 				E96474501FCC1D6A000C5BE9 /* AppDelegate.swift in Sources */,

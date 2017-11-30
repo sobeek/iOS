@@ -8,7 +8,7 @@
 
 import UIKit
 
-class  ProductsViewController: UITableViewController {
+class ProductsViewController: UITableViewController {
     
     var productStore: ProductStore!
     var productsFetcher: ProductsFetcher!
@@ -26,7 +26,9 @@ class  ProductsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "product")!
+        print("Fill table...")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath)
         
         cell.textLabel?.text = productStore.products[indexPath.row].title
         cell.detailTextLabel?.text = productStore.products[indexPath.row].desc
@@ -39,10 +41,20 @@ class  ProductsViewController: UITableViewController {
         productsFetcher.fetchProducts() { (fetchingResult) -> Void in
             switch fetchingResult {
             case let .success(products):
+                self.productStore.products = products
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 print("Successfully found \(products.count) products.")
             case let .failure(error):
                 print("Error fetching products: \(error)")
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
     }
 }
