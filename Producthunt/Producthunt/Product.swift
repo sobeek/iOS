@@ -26,16 +26,16 @@ class Product: NSObject {
     var title: String
     var desc: String
     var upvotes: Int
-    var thumbnail: URL
+    var thumbnailURL: URL
     var url: URL
-    var productPicture: URL
+    var productPictureURL: URL
     
-    init(title: String, desc: String, upvotes: Int, thumbnail: URL, url: URL, productPicture: URL) {
+    init(title: String, desc: String, upvotes: Int, thumbnailURL: URL, url: URL, productPictureURL: URL) {
         self.title = title
         self.desc = desc
         self.upvotes = upvotes
-        self.thumbnail = thumbnail
+        self.thumbnailURL = thumbnailURL
         self.url = url
-        self.productPicture = productPicture
+        self.productPictureURL = productPictureURL
     }
 }

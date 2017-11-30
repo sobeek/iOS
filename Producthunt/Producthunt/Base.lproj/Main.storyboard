@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9GF-rs-fSt" kind="show" id="3oQ-o3-PU5"/>
+                                    <segue destination="9GF-rs-fSt" kind="show" identifier="showProductDetails" id="3oQ-o3-PU5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,20 +65,93 @@
             </objects>
             <point key="canvasLocation" x="397.60000000000002" y="-241.52923538230885"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Details View Controller-->
         <scene sceneID="jmH-fP-Yeo">
             <objects>
-                <viewController id="9GF-rs-fSt" sceneMemberID="viewController">
+                <viewController id="9GF-rs-fSt" customClass="ProductDetailsViewController" customModule="Producthunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cCk-hp-2xt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDT-6b-PVf">
+                                <rect key="frame" x="16" y="90" width="343" height="20.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Description">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-ot-49q">
+                                <rect key="frame" x="16" y="130.5" width="343" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Description Text">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upvotes number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8C-fW-3hO">
+                                <rect key="frame" x="100.5" y="626" width="127" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPVOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA3-9T-LhS">
+                                <rect key="frame" x="16" y="626" width="76.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CZ-Y6-mKQ">
+                                <rect key="frame" x="317" y="617" width="42" height="30"/>
+                                <state key="normal" title="Get it!"/>
+                                <connections>
+                                    <action selector="getProductWithSender:" destination="9GF-rs-fSt" eventType="touchUpInside" id="Ff8-Fl-UmP"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oii-IL-CeW">
+                                <rect key="frame" x="16" y="161.5" width="343" height="454.5"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aDT-6b-PVf" firstAttribute="top" secondItem="LoG-Hv-5jj" secondAttribute="top" constant="26" id="2UI-Lc-dK1"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="trailing" secondItem="gdg-ot-49q" secondAttribute="trailing" constant="16" id="3OL-DT-o2b"/>
+                            <constraint firstItem="P8C-fW-3hO" firstAttribute="leading" secondItem="RA3-9T-LhS" secondAttribute="trailing" constant="8" id="6hH-vC-4ZK"/>
+                            <constraint firstItem="aDT-6b-PVf" firstAttribute="leading" secondItem="LoG-Hv-5jj" secondAttribute="leading" constant="16" id="DNm-9L-dHf"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P8C-fW-3hO" secondAttribute="trailing" constant="20" symbolic="YES" id="DXS-he-Vn9"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="trailing" secondItem="oii-IL-CeW" secondAttribute="trailing" constant="16" id="GWr-kQ-800"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="trailing" secondItem="3CZ-Y6-mKQ" secondAttribute="trailing" constant="16" id="H09-NX-mNh"/>
+                            <constraint firstItem="gdg-ot-49q" firstAttribute="top" secondItem="aDT-6b-PVf" secondAttribute="bottom" constant="20" id="JSC-oc-6eU"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="bottom" secondItem="P8C-fW-3hO" secondAttribute="bottom" constant="20" id="MAY-Qn-18Z"/>
+                            <constraint firstItem="oii-IL-CeW" firstAttribute="top" secondItem="gdg-ot-49q" secondAttribute="bottom" constant="10" id="UvU-sO-VSS"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="bottom" secondItem="3CZ-Y6-mKQ" secondAttribute="bottom" constant="20" id="bwN-Pg-g9U"/>
+                            <constraint firstItem="oii-IL-CeW" firstAttribute="leading" secondItem="LoG-Hv-5jj" secondAttribute="leading" constant="16" id="eIO-l0-xMi"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="trailing" secondItem="aDT-6b-PVf" secondAttribute="trailing" constant="16" id="n7L-5y-9FD"/>
+                            <constraint firstItem="P8C-fW-3hO" firstAttribute="top" secondItem="oii-IL-CeW" secondAttribute="bottom" constant="10" id="nJw-7w-WED"/>
+                            <constraint firstItem="RA3-9T-LhS" firstAttribute="leading" secondItem="LoG-Hv-5jj" secondAttribute="leading" constant="16" id="sCt-iF-zbk"/>
+                            <constraint firstItem="gdg-ot-49q" firstAttribute="leading" secondItem="LoG-Hv-5jj" secondAttribute="leading" constant="16" id="tQT-WC-w5G"/>
+                            <constraint firstItem="LoG-Hv-5jj" firstAttribute="bottom" secondItem="RA3-9T-LhS" secondAttribute="bottom" constant="20" id="y2X-vr-SxR"/>
+                            <constraint firstItem="3CZ-Y6-mKQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cCk-hp-2xt" secondAttribute="leading" constant="20" symbolic="YES" id="zZd-fg-kaP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LoG-Hv-5jj"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="gdg-ot-49q" id="Vq4-Pj-RIC"/>
+                        <outlet property="imageView" destination="oii-IL-CeW" id="VXm-Am-nfe"/>
+                        <outlet property="upvotesNumber" destination="P8C-fW-3hO" id="XYy-yn-2uu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJU-Ug-Mg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="-242"/>
+            <point key="canvasLocation" x="1181.5999999999999" y="-242.42878560719643"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dgC-SY-E5r">

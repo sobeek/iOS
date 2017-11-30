@@ -70,6 +70,6 @@ struct ProductHunterAPI {
         let pictureURL = URL(string: pictureURLString)!
         let thumbnailURL = URL(string: thumbnailURLString)!
         
-        return Product(title: title, desc: description, upvotes: upvotes, thumbnail: thumbnailURL, url: url, productPicture: pictureURL)
+        return Product(title: title, desc: description, upvotes: upvotes, thumbnailURL: thumbnailURL, url: url, productPictureURL: pictureURL)
     }
 }

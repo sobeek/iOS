@@ -26,7 +26,7 @@ class ProductsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("Fill table...")
+        //print("Fill table...")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath)
         
@@ -52,9 +52,19 @@ class ProductsViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showProductDetails"?:
+            // Figure out which row was just tapped
+            if let row = tableView.indexPathForSelectedRow?.row {
+                // Get the item associated with this row and pass it along
+                let product = productStore.products[row]
+                let detailViewController
+                    = segue.destination as! ProductDetailsViewController
+                detailViewController.product = product
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
 }
