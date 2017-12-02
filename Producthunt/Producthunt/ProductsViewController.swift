@@ -29,18 +29,37 @@ class ProductsViewController: UITableViewController {
         
         //print("Fill table...")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath) as! ProductCell
-        //cell.thumbnail = UIImageView()
-        
-        let product = productStore.products[indexPath.row]
-        
-        cell.productTitle?.text = product.title
-        cell.descriptionTitle?.text = product.desc
-        
-        let imageDownloader = ImageDownloader()
-        imageDownloader.imageDownload(url: product.thumbnailURL, imageView: cell.thumbnail)
-        
-        return cell
+        if indexPath.row == 0 {
+            //let cell = tableView.dequeueReusableCell(withIdentifier: "topic")!
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "topic")
+            
+            cell.detailTextLabel?.text = TopicSelectionViewController.selectedTopic
+            cell.textLabel?.text = "Select topic"
+//            let product = productStore.products[indexPath.row]
+//
+//            cell.textLabel?.text = product.title
+//            cell.detailTextLabel?.text = product.desc
+
+            //let imageDownloader = ImageDownloader()
+            //imageDownloader.imageDownload(url: product.thumbnailURL, imageView: cell.thumbnail)
+
+            return cell
+
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath) as! ProductCell
+            //cell.thumbnail = UIImageView()
+            
+            let product = productStore.products[indexPath.row]
+            
+            cell.productTitle?.text = product.title
+            cell.descriptionTitle?.text = product.desc
+            
+            let imageDownloader = ImageDownloader()
+            imageDownloader.imageDownload(url: product.thumbnailURL, imageView: cell.thumbnail)
+            
+            return cell
+        }
     }
     
     override func viewDidLoad() {
@@ -65,6 +84,7 @@ class ProductsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //print(segue.identifier)
         switch segue.identifier {
         case "showProductDetails"?:
             // Figure out which row was just tapped
@@ -73,6 +93,15 @@ class ProductsViewController: UITableViewController {
                 let product = productStore.products[row]
                 let detailViewController = segue.destination as! ProductDetailsViewController
                 detailViewController.product = product
+            }
+        case "showTopicList"?:
+            if (tableView.indexPathForSelectedRow?.row) != nil {
+                print("Go to list...")
+                //_ = segue.destination as! TopicSelectionViewController
+                // Get the item associated with this row and pass it along
+                //let product = productStore.products[row]
+                //let topicSelectionViewController = segue.destination as! TopicSelectionViewController
+                //detailViewController.product = product
             }
         default:
             preconditionFailure("Unexpected segue identifier.")

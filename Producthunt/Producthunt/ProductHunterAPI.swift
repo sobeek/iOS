@@ -12,11 +12,53 @@ enum ProductHuntError: Error {
     case invalidJSONData
 }
 
+enum Method: String {
+    case posts = "posts/all"
+    case topics = "topics"
+}
+
 struct ProductHunterAPI {
-    let APIUrl = "https://api.producthunt.com/v1/"
-    let access_token = "access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff"
+    static let initialURL = "https://api.producthunt.com/v1/"
+    static let access_token = "591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff"
     
-    static let temporaryURL = URL(string: "https://api.producthunt.com/v1/posts?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
+    static let defaultURL = URL(string: "https://api.producthunt.com/v1/posts/all?search[topic]=tech&access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
+    
+    static let topicsListURL = URL(string: "https://api.producthunt.com/v1/topics?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
+    
+    static var getPosts: URL {
+        return getProducthuntURL(method: .posts, parameters: ["search[topic]":"tech"]) //NEED SELECTED TOPIC THERE!!
+    }
+    
+    static var getTopics: URL {
+        return getProducthuntURL(method: .topics, parameters: [:])
+    }
+    
+    static func getProducthuntURL(method: Method, parameters: [String:String]?) -> URL {
+        
+        let baseURL = initialURL + method.rawValue
+        var components = URLComponents(string: baseURL)!
+        var queryItems = [URLQueryItem]()
+        
+        let baseParameters = [
+            "access_token": access_token
+        ]
+        
+        for (key, value) in baseParameters {
+            let item = URLQueryItem(name: key, value: value)
+            queryItems.append(item)
+        }
+       
+        if let additionalParameters = parameters {
+            for (key, value) in additionalParameters {
+                let item = URLQueryItem(name: key, value: value)
+                queryItems.append(item)
+            }
+        }
+        
+        components.queryItems = queryItems
+        
+        return components.url!
+    }
     
     static func products(fromJSON data: Data) -> FetchingResult {
         do {

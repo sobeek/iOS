@@ -20,7 +20,3 @@ class Topic {
         self.slug = slug
     }
 }
-
-class TopicList {
-    var topics = [Topic]()
-}

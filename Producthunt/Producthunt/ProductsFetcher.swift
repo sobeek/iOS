@@ -21,7 +21,7 @@ class ProductsFetcher {
     }()
     
     func fetchProducts(completion: @escaping (FetchingResult) -> Void) {
-        let url = ProductHunterAPI.temporaryURL!
+        let url = ProductHunterAPI.defaultURL!
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in

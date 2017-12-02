@@ -11,7 +11,7 @@ import UIKit
 class ImageDownloader {
     
     func imageDownload(url: URL, imageView: UIImageView) {
-        print("URL: \(url.path)")
+        //print("URL: \(url.path)")
         imageView.image = nil
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data, error == nil
