@@ -20,14 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Access the ProductsViewController and set its item store
         
         
-        let navController = window!.rootViewController as! TopicSelectionViewController
-        navController.topicsFetcher = DataFetcher()
-        navController.topicList = TopicList()
-        //let navController = window!.rootViewController as! UINavigationController
-        //let productsController = navController.topViewController as! ProductsViewController
+        let navController = window!.rootViewController as! UINavigationController
+        let postController = navController.topViewController as! PostsViewController
         
-//        productsController.productStore = ProductStore()
-//        productsController.productsFetcher = DataFetcher()
+        postController.postStore = PostStore()
+        postController.postFetcher = DataFetcher()
         
         return true
     }

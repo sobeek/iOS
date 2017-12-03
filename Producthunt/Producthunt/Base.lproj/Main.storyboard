@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kff-nd-QAq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pm2-yy-0c4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,8 +36,8 @@
                                                 <constraint firstAttribute="width" constant="32" id="yGK-UP-mAc"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZ6-mT-r3S">
-                                            <rect key="frame" x="48" y="6" width="94" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZ6-mT-r3S">
+                                            <rect key="frame" x="48" y="6" width="67.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="I89-bC-6D0"/>
                                             </constraints>
@@ -68,7 +68,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionTitle" destination="m3k-7C-U85" id="rvz-ja-5Ta"/>
-                                    <outlet property="productTitle" destination="GZ6-mT-r3S" id="iI9-6g-We2"/>
+                                    <outlet property="postTitle" destination="GZ6-mT-r3S" id="fPc-7O-zyq"/>
                                     <outlet property="thumbnail" destination="bAP-cO-3F6" id="Gdn-1T-VJD"/>
                                     <segue destination="9GF-rs-fSt" kind="show" identifier="showProductDetails" id="3oQ-o3-PU5"/>
                                 </connections>
@@ -96,6 +96,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kff-nd-QAq" kind="show" id="sKS-ve-ZZD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -142,7 +145,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kn6-WV-USg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="-626"/>
+            <point key="canvasLocation" x="1612" y="-681"/>
         </scene>
         <!--Post Details View Controller-->
         <scene sceneID="jmH-fP-Yeo">
