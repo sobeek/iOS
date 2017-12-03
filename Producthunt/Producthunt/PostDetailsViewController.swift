@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ProductDetailsViewController: UIViewController {
+class PostDetailsViewController: UIViewController {
     
-    var product: Product! {
+    var post: Post! {
         didSet {
-            navigationItem.title = product.title
+            navigationItem.title = post.title
         }
     }
     
@@ -21,17 +21,17 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     
     @IBAction func getProduct (sender: UIButton) {
-        UIApplication.shared.open(product.url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(post.url, options: [:], completionHandler: nil)
     }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        descriptionLabel.text = product.desc
-        upvotesNumber.text = "\(product.upvotes)"
+        descriptionLabel.text = post.desc
+        upvotesNumber.text = "\(post.upvotes)"
         
         let imageDownloader = ImageDownloader()
-        imageDownloader.imageDownload(url: product.productPictureURL, imageView: imageView)
+        imageDownloader.imageDownload(url: post.productPictureURL, imageView: imageView)
     }
 }
 

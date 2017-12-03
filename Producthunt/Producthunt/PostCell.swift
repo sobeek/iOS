@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ProductCell: UITableViewCell {
-    @IBOutlet var productTitle: UILabel!
+class PostCell: UITableViewCell {
+    @IBOutlet var postTitle: UILabel!
     @IBOutlet var descriptionTitle: UILabel!
     @IBOutlet var thumbnail: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        productTitle.adjustsFontForContentSizeCategory = true
+        postTitle.adjustsFontForContentSizeCategory = true
         descriptionTitle.adjustsFontForContentSizeCategory = true
         //thumbnail.adjustsFontForContentSizeCategory = true
     }

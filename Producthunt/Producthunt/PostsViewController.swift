@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ProductsViewController: UITableViewController {
+class PostsViewController: UITableViewController {
     
-    var productStore: ProductStore!
-    var productsFetcher: ProductsFetcher!
+    var postStore: PostStore!
+    var postFetcher: DataFetcher!
     
     @IBAction func handleRefresh(_ refreshControl: UIRefreshControl) {
         print("Refreshed")
@@ -22,7 +22,7 @@ class ProductsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //self.refreshControl(
-        return productStore.products.count
+        return postStore.posts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,7 +31,7 @@ class ProductsViewController: UITableViewController {
         
         if indexPath.row == 0 {
             //let cell = tableView.dequeueReusableCell(withIdentifier: "topic")!
-            let cell = UITableViewCell(style: .value1, reuseIdentifier: "topic")
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "topics")
             
             cell.detailTextLabel?.text = TopicSelectionViewController.selectedTopic
             cell.textLabel?.text = "Select topic"
@@ -47,12 +47,12 @@ class ProductsViewController: UITableViewController {
 
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath) as! ProductCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath) as! PostCell
             //cell.thumbnail = UIImageView()
             
-            let product = productStore.products[indexPath.row]
+            let product = postStore.posts[indexPath.row]
             
-            cell.productTitle?.text = product.title
+            cell.postTitle?.text = product.title
             cell.descriptionTitle?.text = product.desc
             
             let imageDownloader = ImageDownloader()
@@ -69,14 +69,14 @@ class ProductsViewController: UITableViewController {
     }
     
     func loadData() {
-        productsFetcher.fetchProducts() { (fetchingResult) -> Void in
+        postFetcher.fetch(method: .posts, url: ProductHunterAPI.getPosts) { (fetchingResult) -> Void in
             switch fetchingResult {
-            case let .success(products):
-                self.productStore.products = products
+            case let .success(posts):
+                self.postStore.posts = posts as! [Post]
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                print("Successfully found \(products.count) products.")
+                print("Successfully found \(posts.count) products.")
             case let .failure(error):
                 print("Error fetching products: \(error)")
             }
@@ -90,9 +90,9 @@ class ProductsViewController: UITableViewController {
             // Figure out which row was just tapped
             if let row = tableView.indexPathForSelectedRow?.row {
                 // Get the item associated with this row and pass it along
-                let product = productStore.products[row]
-                let detailViewController = segue.destination as! ProductDetailsViewController
-                detailViewController.product = product
+                let post = postStore.posts[row]
+                let detailViewController = segue.destination as! PostDetailsViewController
+                detailViewController.post = post
             }
         case "showTopicList"?:
             if (tableView.indexPathForSelectedRow?.row) != nil {

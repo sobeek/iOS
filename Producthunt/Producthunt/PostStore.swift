@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ProductStore {
-    var products = [Product]()
+class PostStore {
+    var posts = [Post]()
 }

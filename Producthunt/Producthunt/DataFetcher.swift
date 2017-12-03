@@ -9,19 +9,20 @@
 import Foundation
 
 enum FetchingResult {
-    case success([Product])
+    case success([Any])
     case failure(Error)
 }
 
-class ProductsFetcher {
+class DataFetcher {
     
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
     
-    func fetchProducts(completion: @escaping (FetchingResult) -> Void) {
-        let url = ProductHunterAPI.defaultURL!
+    func fetch(method: Method, url: URL, completion: @escaping (FetchingResult) -> Void) {
+        //let url = ProductHunterAPI.defaultURL!
+        //print(url)
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
@@ -38,17 +39,17 @@ class ProductsFetcher {
              } else {
              print("Unexpected error with the request")
              }*/
-            let result = self.proccessProductsRequest(data: data, error: error)
+            let result = self.proccessDataRequest(method: method, data: data, error: error)
             completion(result)
         }
         task.resume()
     }
     
-    private func proccessProductsRequest(data: Data?, error: Error?) -> FetchingResult {
+    private func proccessDataRequest(method: Method, data: Data?, error: Error?) -> FetchingResult {
         guard let jsonData = data
             else {
                 return .failure(error!)
         }
-        return ProductHunterAPI.products(fromJSON: jsonData)
+        return ProductHunterAPI.getParsedData(method: method, fromJSON: jsonData)
     }
 }

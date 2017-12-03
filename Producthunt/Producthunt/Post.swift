@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Product: NSObject {
+class Post: NSObject {
     /*В каждой ячейке в списке отображется следующая информация:
      Название продукта
      Описание

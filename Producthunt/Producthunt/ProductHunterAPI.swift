@@ -13,7 +13,7 @@ enum ProductHuntError: Error {
 }
 
 enum Method: String {
-    case posts = "posts/all"
+    case posts = "posts"
     case topics = "topics"
 }
 
@@ -33,9 +33,20 @@ struct ProductHunterAPI {
         return getProducthuntURL(method: .topics, parameters: [:])
     }
     
-    static func getProducthuntURL(method: Method, parameters: [String:String]?) -> URL {
+    static func getParsedData(method: Method, fromJSON data: Data) -> FetchingResult {
+        switch method {
+        case .topics:
+            return topics(fromJSON: data)
+        case .posts:
+            return posts(fromJSON: data)
+        default:
+            return .failure(ProductHuntError.invalidJSONData)
+        }
+    }
+    
+    private static func getProducthuntURL(method: Method, parameters: [String:String]?) -> URL {
         
-        let baseURL = initialURL + method.rawValue
+        let baseURL = initialURL + method.rawValue + (method.rawValue == "posts" ? "/all" : "")
         var components = URLComponents(string: baseURL)!
         var queryItems = [URLQueryItem]()
         
@@ -60,7 +71,37 @@ struct ProductHunterAPI {
         return components.url!
     }
     
-    static func products(fromJSON data: Data) -> FetchingResult {
+    static func topics(fromJSON data: Data) -> FetchingResult {
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+            //print(jsonObject)
+            guard
+                let jsonDictionary = jsonObject as? [AnyHashable:Any],
+                let topicsArray = jsonDictionary["topics"] as? [[String:Any]]
+                else {
+                    // The JSON structure doesn't match our expectations
+                    return .failure(ProductHuntError.invalidJSONData)
+            }
+            var parsedTopics = [Topic]()
+            for productJSON in topicsArray {
+                if let topic = topic(fromJSON: productJSON) {
+                    parsedTopics.append(topic)
+                }
+            }
+            
+            if parsedTopics.isEmpty && !topicsArray.isEmpty {
+                // We weren't able to parse any of the topics
+                // Maybe the JSON format for photos has changed
+                return .failure(ProductHuntError.invalidJSONData)
+            }
+            return .success(parsedTopics)
+        }
+        catch let error {
+            return .failure(error)
+        }
+    }
+    
+    static func posts(fromJSON data: Data) -> FetchingResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             //print(jsonObject)
@@ -71,26 +112,37 @@ struct ProductHunterAPI {
                     // The JSON structure doesn't match our expectations
                     return .failure(ProductHuntError.invalidJSONData)
             }
-            var parsedProducts = [Product]()
-            for productJSON in postsArray {
-                if let product = product(fromJSON: productJSON) {
-                    parsedProducts.append(product)
+            var parsedPosts = [Post]()
+            for postJSON in postsArray {
+                if let post = post(fromJSON: postJSON) {
+                    parsedPosts.append(post)
                 }
             }
             
-            if parsedProducts.isEmpty && !postsArray.isEmpty {
+            if parsedPosts.isEmpty && !postsArray.isEmpty {
                 // We weren't able to parse any of the products
                 // Maybe the JSON format for photos has changed
                 return .failure(ProductHuntError.invalidJSONData)
             }
-            return .success(parsedProducts)
+            return .success(parsedPosts)
         }
         catch let error {
             return .failure(error)
         }
     }
     
-    private static func product(fromJSON json: [String:Any]) -> Product? {
+    private static func topic(fromJSON json: [String:Any]) -> Topic? {
+        guard
+            let id = json["id"] as? Int,
+            let name = json["name"] as? String,
+            let slug = json["slug"] as? String
+        else {
+            return nil
+        }
+        return Topic(id: id, name: name, slug: slug)
+    }
+    
+    private static func post(fromJSON json: [String:Any]) -> Post? {
         //print(json)
         guard
             let description = json["tagline"] as? String,
@@ -112,6 +164,6 @@ struct ProductHunterAPI {
         let pictureURL = URL(string: pictureURLString)!
         let thumbnailURL = URL(string: thumbnailURLString)!
         
-        return Product(title: title, desc: description, upvotes: upvotes, thumbnailURL: thumbnailURL, url: url, productPictureURL: pictureURL)
+        return Post(title: title, desc: description, upvotes: upvotes, thumbnailURL: thumbnailURL, url: url, productPictureURL: pictureURL)
     }
 }
