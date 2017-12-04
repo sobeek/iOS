@@ -16,35 +16,26 @@ class CategorySelectionViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1")
         loadData()
-        //categoryList.categories.sort(by: {$0.name < $1.name})
-        
     }
     
     func loadData() {
-        //var fetchResult: FetchingResult = .success([Any])
-        //repeat {
-            categoriesFetcher.fetch(method: .categories, url: ProductHunterAPI.getCategories) { (fetchingResult) -> Void in
-                switch fetchingResult {
-                case let .success(categories):
-                    print("2")
-                    //self.categoryList.categories += categories as! [Category]
-                    self.categoryList.categories = categories as! [Category]
-                    DispatchQueue.main.async {
-                        self.categoryList.categories.sort(by: {$0.name < $1.name})
-                        self.tableView.reloadData()
-                    }
-                    print("Successfully found \(categories.count) categories.")
-                case let .failure(error):
-                    print("Error fetching categories: \(error)")
+        categoriesFetcher.fetch(method: .categories, url: ProductHunterAPI.getCategories) { (fetchingResult) -> Void in
+            switch fetchingResult {
+            case let .success(categories):
+                self.categoryList.categories = categories as! [Category]
+                DispatchQueue.main.async {
+                    self.categoryList.categories.sort(by: {$0.name < $1.name})
+                    self.tableView.reloadData()
                 }
+                //print("Successfully found \(categories.count) categories.")
+            case let .failure(error):
+                print("Error fetching categories: \(error)")
             }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //self.refreshControl(
-        //print(categoryList.categories.count)
         return categoryList.categories.count
     }
     
@@ -53,20 +44,14 @@ class CategorySelectionViewController: UITableViewController {
         let category = categoryList.categories[indexPath.row]
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "category")
-        
-        //cell.detailTextLabel?.text = TopicSelectionViewController.selectedTopic
         cell.textLabel?.text = category.name
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        //print(categoryList.categories[indexPath.row])
         let category = categoryList.categories[indexPath.row]
         CategorySelectionViewController.selectedCategory = ["name": category.name, "slug": category.slug]
-        //self.dismiss(animated: true, completion: nil)
-        //performSegue(withIdentifier: "showPosts", sender: nil)
         
         _ = navigationController?.popViewController(animated: true)
     }
@@ -84,6 +69,4 @@ class CategorySelectionViewController: UITableViewController {
             preconditionFailure("Unexpected segue identifier.")
         }
     }
-    
-    //YNDropdownmenu()
 }

@@ -21,9 +21,9 @@ struct ProductHunterAPI {
     static let initialURL = "https://api.producthunt.com/v1/"
     static let access_token = "591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff"
     
-    static let defaultURL = URL(string: "https://api.producthunt.com/v1/categories/tech/posts?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
+    //static let defaultURL = URL(string: "https://api.producthunt.com/v1/categories/tech/posts?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
     
-    static let topicsListURL = URL(string: "https://api.producthunt.com/v1/topics?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
+    //static let topicsListURL = URL(string: "https://api.producthunt.com/v1/topics?access_token=591f99547f569b05ba7d8777e2e0824eea16c440292cce1f8dfb3952cc9937ff")
     
     static var getPosts: URL {
         return getProducthuntURL(method: .posts, parameters: [:]) //NEED SELECTED TOPIC THERE!!
@@ -39,8 +39,8 @@ struct ProductHunterAPI {
             return categories(fromJSON: data)
         case .posts:
             return posts(fromJSON: data)
-        default:
-            return .failure(ProductHuntError.invalidJSONData)
+        //default:
+            //return .failure(ProductHuntError.invalidJSONData)
         }
     }
     
@@ -76,7 +76,6 @@ struct ProductHunterAPI {
     static func categories(fromJSON data: Data) -> FetchingResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-            //print(jsonObject)
             guard
                 let jsonDictionary = jsonObject as? [AnyHashable:Any],
                 let categoriesArray = jsonDictionary["topics"] as? [[String:Any]]
@@ -92,7 +91,7 @@ struct ProductHunterAPI {
             }
             
             if parsedCategories.isEmpty && !categoriesArray.isEmpty {
-                // We weren't able to parse any of the topics
+                // We weren't able to parse any of the categories
                 // Maybe the JSON format for photos has changed
                 return .failure(ProductHuntError.invalidJSONData)
             }
@@ -122,7 +121,7 @@ struct ProductHunterAPI {
             }
             
             if parsedPosts.isEmpty && !postsArray.isEmpty {
-                // We weren't able to parse any of the products
+                // We weren't able to parse any of the posts
                 // Maybe the JSON format for photos has changed
                 return .failure(ProductHuntError.invalidJSONData)
             }
@@ -145,7 +144,6 @@ struct ProductHunterAPI {
     }
     
     private static func post(fromJSON json: [String:Any]) -> Post? {
-        //print(json)
         guard
             let description = json["tagline"] as? String,
             let title = json["name"] as? String,
@@ -158,7 +156,6 @@ struct ProductHunterAPI {
             let thumbnailURLString = thumbnailDictionary["image_url"] as? String
         else {
                 // Don't have enough information to construct a Product
-                //print("FAIL...")
                 return nil
         }
         //get product, pic and thumbnail urls

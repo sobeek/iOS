@@ -11,14 +11,11 @@ import UIKit
 class ImageDownloader {
     
     func imageDownload(url: URL, imageView: UIImageView) {
-        //print("URL: \(url.path)")
-        //imageView.image = nil
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data, error == nil
                 else {
                     return
             }
-            
             DispatchQueue.main.async() {
                 imageView.image = UIImage(data: data)
             }

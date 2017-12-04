@@ -18,6 +18,5 @@ class PostCell: UITableViewCell {
         
         postTitle.adjustsFontForContentSizeCategory = true
         descriptionTitle.adjustsFontForContentSizeCategory = true
-        //thumbnail.adjustsFontForContentSizeCategory = true
     }
 }

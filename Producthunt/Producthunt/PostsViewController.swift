@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YNDropDownMenu
 
 class PostsViewController: UITableViewController {
     
@@ -16,41 +15,28 @@ class PostsViewController: UITableViewController {
     var imageDownloader = ImageDownloader()
     
     @IBAction func handleRefresh(_ refreshControl: UIRefreshControl) {
-        print("Refreshed")
         loadData()
         refreshControl.endRefreshing()
-        //add launch of new request to Producthunt
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //self.refreshControl(
+        // there are postStore.posts.count cells for posts and another one cell for category selection
         return postStore.posts.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //print("Fill table...")
-        
         if indexPath.row == 0 {
-            //let cell = tableView.dequeueReusableCell(withIdentifier: "topic")!
             let cell = UITableViewCell(style: .value1, reuseIdentifier: "topics")
             
             cell.detailTextLabel?.text = CategorySelectionViewController.selectedCategory["name"]
             cell.textLabel?.text = "Select topic"
-//            let product = productStore.products[indexPath.row]
-//
-//            cell.textLabel?.text = product.title
-//            cell.detailTextLabel?.text = product.desc
-
-            //let imageDownloader = ImageDownloader()
-            //imageDownloader.imageDownload(url: product.thumbnailURL, imageView: cell.thumbnail)
 
             return cell
 
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! PostCell
-            //cell.thumbnail = UIImageView()
             
             let post = postStore.posts[indexPath.row - 1]
             
@@ -86,7 +72,6 @@ class PostsViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                print("Successfully found \(posts.count) posts.")
             case let .failure(error):
                 print("Error fetching products: \(error)")
             }
@@ -101,7 +86,6 @@ class PostsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //print(segue.identifier)
         switch segue.identifier {
         case "showPostDetails"?:
             // Figure out which row was just tapped
@@ -113,14 +97,9 @@ class PostsViewController: UITableViewController {
             }
         case "showCategoryList"?:
             if (tableView.indexPathForSelectedRow?.row) != nil {
-                print("Go to topic list...")
                 let vc = segue.destination as! CategorySelectionViewController
                 vc.categoriesFetcher = DataFetcher()
                 vc.categoryList = CategoryList()
-                // Get the item associated with this row and pass it along
-                //let product = productStore.products[row]
-                //let topicSelectionViewController = segue.destination as! TopicSelectionViewController
-                //detailViewController.product = product
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
