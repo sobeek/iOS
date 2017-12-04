@@ -57,6 +57,8 @@ class PostsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 44
+        //self.navigationController?.
+        self.navigationItem.title = CategorySelectionViewController.selectedCategory["name"]
     }
     
     override func viewWillAppear(_ animated: Bool) {
