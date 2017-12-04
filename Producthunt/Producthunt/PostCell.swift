@@ -1,5 +1,5 @@
 //
-//  ProductCell.swift
+//  PostCell.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 30.11.2017.

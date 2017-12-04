@@ -1,5 +1,5 @@
 //
-//  ProductStore.swift
+//  PostStore.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 27.11.2017.

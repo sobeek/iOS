@@ -1,5 +1,5 @@
 //
-//  ProductDetailsViewController.swift
+//  PostDetailsViewController.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 30.11.2017.

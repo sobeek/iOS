@@ -1,5 +1,5 @@
 //
-//  TopicList.swift
+//  CategoryList.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 02.12.2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TopicList {
-    var topics = [Topic]()
+class CategoryList {
+    var categories = [Category]()
 }

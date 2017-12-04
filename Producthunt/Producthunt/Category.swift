@@ -1,5 +1,5 @@
 //
-//  Topic.swift
+//  Category.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 01.12.2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Topic {
+class Category {
     
     let id: Int
     let name: String

@@ -21,12 +21,12 @@
 		E96474821FCC29DF000C5BE9 /* PostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96474811FCC29DF000C5BE9 /* PostStore.swift */; };
 		E96474841FCD6D86000C5BE9 /* ProductHunterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */; };
 		E99FE5971FD07E2C0077317D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE5961FD07E2C0077317D /* PostCell.swift */; };
-		E99FE5991FD0B2620077317D /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE5981FD0B2620077317D /* Topic.swift */; };
-		E99FE59B1FD2B0E70077317D /* TopicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE59A1FD2B0E70077317D /* TopicSelectionViewController.swift */; };
+		E99FE5991FD0B2620077317D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE5981FD0B2620077317D /* Category.swift */; };
+		E99FE59B1FD2B0E70077317D /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE59A1FD2B0E70077317D /* CategorySelectionViewController.swift */; };
 		E9A24CF81FCDA0DB0034C674 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A24CF71FCDA0DB0034C674 /* DataFetcher.swift */; };
 		E9A24CFA1FD01FD60034C674 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A24CF91FD01FD60034C674 /* PostDetailsViewController.swift */; };
 		E9A24CFC1FD034040034C674 /* ImageDownloadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A24CFB1FD034040034C674 /* ImageDownloadAPI.swift */; };
-		E9FDBAF51FD301BC00C53501 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDBAF41FD301BC00C53501 /* TopicList.swift */; };
+		E9FDBAF51FD301BC00C53501 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDBAF41FD301BC00C53501 /* CategoryList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,15 +82,15 @@
 		E96474811FCC29DF000C5BE9 /* PostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStore.swift; sourceTree = "<group>"; };
 		E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHunterAPI.swift; sourceTree = "<group>"; };
 		E99FE5961FD07E2C0077317D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		E99FE5981FD0B2620077317D /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		E99FE59A1FD2B0E70077317D /* TopicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSelectionViewController.swift; sourceTree = "<group>"; };
+		E99FE5981FD0B2620077317D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E99FE59A1FD2B0E70077317D /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		E9A24CF71FCDA0DB0034C674 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		E9A24CF91FD01FD60034C674 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		E9A24CFB1FD034040034C674 /* ImageDownloadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadAPI.swift; sourceTree = "<group>"; };
 		E9FDBAF11FD2E1DB00C53501 /* Producthunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Producthunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FDBAF21FD2E1DB00C53501 /* ProducthuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProducthuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FDBAF31FD2E1DB00C53501 /* ProducthuntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProducthuntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9FDBAF41FD301BC00C53501 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
+		E9FDBAF41FD301BC00C53501 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		F04A2D56F75FD94024543F0C /* Pods-ProducthuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProducthuntTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProducthuntTests/Pods-ProducthuntTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,9 +164,9 @@
 			children = (
 				E964747F1FCC23E4000C5BE9 /* Post.swift */,
 				E96474811FCC29DF000C5BE9 /* PostStore.swift */,
-				E99FE5981FD0B2620077317D /* Topic.swift */,
-				E9FDBAF41FD301BC00C53501 /* TopicList.swift */,
-				E99FE59A1FD2B0E70077317D /* TopicSelectionViewController.swift */,
+				E99FE5981FD0B2620077317D /* Category.swift */,
+				E9FDBAF41FD301BC00C53501 /* CategoryList.swift */,
+				E99FE59A1FD2B0E70077317D /* CategorySelectionViewController.swift */,
 				E9A24CF71FCDA0DB0034C674 /* DataFetcher.swift */,
 				E96474831FCD6D86000C5BE9 /* ProductHunterAPI.swift */,
 				E9A24CFB1FD034040034C674 /* ImageDownloadAPI.swift */,
@@ -495,11 +495,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A24CFA1FD01FD60034C674 /* PostDetailsViewController.swift in Sources */,
-				E99FE5991FD0B2620077317D /* Topic.swift in Sources */,
+				E99FE5991FD0B2620077317D /* Category.swift in Sources */,
 				E9A24CF81FCDA0DB0034C674 /* DataFetcher.swift in Sources */,
-				E99FE59B1FD2B0E70077317D /* TopicSelectionViewController.swift in Sources */,
+				E99FE59B1FD2B0E70077317D /* CategorySelectionViewController.swift in Sources */,
 				E964747E1FCC22B0000C5BE9 /* PostsViewController.swift in Sources */,
-				E9FDBAF51FD301BC00C53501 /* TopicList.swift in Sources */,
+				E9FDBAF51FD301BC00C53501 /* CategoryList.swift in Sources */,
 				E96474501FCC1D6A000C5BE9 /* AppDelegate.swift in Sources */,
 				E96474801FCC23E4000C5BE9 /* Post.swift in Sources */,
 				E96474841FCD6D86000C5BE9 /* ProductHunterAPI.swift in Sources */,

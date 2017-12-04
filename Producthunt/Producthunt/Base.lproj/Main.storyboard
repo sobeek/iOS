@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" id="U10-sf-tmy" customClass="PostCell" customModule="Producthunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" id="U10-sf-tmy" customClass="PostCell" customModule="Producthunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U10-sf-tmy" id="UIX-zI-4CB">
@@ -70,7 +70,7 @@
                                     <outlet property="descriptionTitle" destination="m3k-7C-U85" id="rvz-ja-5Ta"/>
                                     <outlet property="postTitle" destination="GZ6-mT-r3S" id="fPc-7O-zyq"/>
                                     <outlet property="thumbnail" destination="bAP-cO-3F6" id="Gdn-1T-VJD"/>
-                                    <segue destination="9GF-rs-fSt" kind="show" identifier="showProductDetails" id="3oQ-o3-PU5"/>
+                                    <segue destination="9GF-rs-fSt" kind="show" identifier="showPostDetails" id="3oQ-o3-PU5"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="topics" textLabel="xpm-ea-Cvm" detailTextLabel="iUU-Ug-DUh" style="IBUITableViewCellStyleValue1" id="uu9-xP-jyz">
@@ -97,7 +97,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="kff-nd-QAq" kind="show" id="sKS-ve-ZZD"/>
+                                    <segue destination="kff-nd-QAq" kind="show" identifier="showCategoryList" id="sKS-ve-ZZD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -119,16 +119,16 @@
             </objects>
             <point key="canvasLocation" x="397.60000000000002" y="-241.52923538230885"/>
         </scene>
-        <!--Topic Selection View Controller-->
+        <!--Category Selection View Controller-->
         <scene sceneID="UdI-zO-7BJ">
             <objects>
-                <tableViewController id="kff-nd-QAq" customClass="TopicSelectionViewController" customModule="Producthunt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kff-nd-QAq" customClass="CategorySelectionViewController" customModule="Producthunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kar-CK-2Aw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="topic" id="gWQ-mb-5de">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="category" id="gWQ-mb-5de">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gWQ-mb-5de" id="vGo-yL-JnX">

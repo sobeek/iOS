@@ -1,5 +1,5 @@
 //
-//  FetchProducts.swift
+//  DataFetcher.swift
 //  Producthunt
 //
 //  Created by Павел Собянин on 28.11.2017.
@@ -22,23 +22,10 @@ class DataFetcher {
     
     func fetch(method: Method, url: URL, completion: @escaping (FetchingResult) -> Void) {
         //let url = ProductHunterAPI.defaultURL!
-        //print(url)
+        print(url)
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
-            /* if let jsonData = data {
-             do {
-             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
-             print(jsonObject)
-             }
-             catch let error {
-             print("Error creating JSON object: \(error)")
-             }
-             } else if let requestError = error {
-             print("Error fetching interesting photos: \(requestError)")
-             } else {
-             print("Unexpected error with the request")
-             }*/
             let result = self.proccessDataRequest(method: method, data: data, error: error)
             completion(result)
         }
