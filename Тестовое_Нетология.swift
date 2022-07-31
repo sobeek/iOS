@@ -116,11 +116,11 @@ extension PMNotificationsListViewController: UITableViewDelegate {
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .none)
         tableView.endUpdates()
-        getOrderDetailsPage(item?.entityId, item?.identifier) { orderId in
+        getOrderDetailsPage(item?.entityId, item?.identifier) { [weak self] orderId in
             let orderDetailsViewModel = PMOrderDetailsViewModel.init(orderId: orderId)
             let vc = PMOrderDetailsViewController.init(viewModel: orderDetailsViewModel)
             vc.presentedByNotification = true
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
